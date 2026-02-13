@@ -76,8 +76,8 @@ body {
 }
 
 /* HERO */
-.hero {
-    height: 100vh;
+    .hero {
+    min-height: 100vh; 
     background: url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -92,7 +92,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 46px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     margin-bottom: 16px;
     color: #ffffff;
@@ -115,7 +115,7 @@ body {
     display: grid;
     gap: 12px;
     border: 1px solid var(--border);
-    margin-top: 180px; /* pushed way down */
+    margin-top: 40px;
 }
 
 
@@ -160,6 +160,7 @@ body {
 .grid {
     display: grid;
     gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .property-card {
@@ -203,6 +204,14 @@ body {
     align-items: center;
     padding: 20px;
     z-index: 1000;
+}
+.hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    line-height: 1.8;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    font-weight: 600;
+    margin-top: 20px;
 }
 
 .modal-content {
@@ -257,11 +266,11 @@ body {
 }
 
 /* RESPONSIVE */
-@media(min-width: 768px) {
-    .hero h1 { font-size: 56px; }
-    .search-box { grid-template-columns: repeat(4, 1fr); }
-    .grid { grid-template-columns: repeat(3, 1fr); }
-}
+
+@media (min-width: 768px) {
+    .search-box {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
 </style>
 </head>
@@ -278,25 +287,10 @@ body {
     <p class="disco-neon"></p>
 
     <h2> <span></span></h2>
-<p style="
-    position: absolute;
-    top: 180px;                 /* moved further down */
-    left: 24px;
-    font-family: 'Montserrat', 'Inter', sans-serif;
-    font-size: 22px;
-    line-height: 1.8;
-    color: #ffffff;
-    text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 40px #ffffff;
-    font-weight: 600;
-    max-width: 700px;
-    text-align: left;
-">
+<p class="hero-description">
     Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.
 </p>
+
 
 
 
