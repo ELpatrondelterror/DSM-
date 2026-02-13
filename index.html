@@ -8,15 +8,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* MODAL STYLES */
+/* ============================= */
+/* CORPORATE SMOKEY LUXURY THEME */
+/* ============================= */
 
 :root {
-    --bg-main: #0c0f14;
-    --bg-secondary: #131720;
-    --card: #1b1f27;
-    --border: #252b36;
-    --accent: #00b3ff;
-    --text-main: #e6edf3;
-    --text-sub: #8b949e;
+    --dark-main: #2f3136;        /* 50% dark grey */
+    --dark-secondary: #3a3d42;   /* layer grey */
+    --card: #44484f;             /* card smokey grey */
+    --border: #5a5f66;           /* soft border */
+    --accent: #c6c9cf;           /* silver highlight */
+    --accent-soft: #9da3aa;      /* muted silver */
+    --text-main: #f5f6f7;
+    --text-sub: #b4b8be;
 }
 
 * {
@@ -26,45 +31,62 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* ============================= */
+/* BODY                          */
+/* ============================= */
+
 body {
-    background: radial-gradient(circle at top left, #11151c, #0c0f14 60%);
+    background: linear-gradient(
+        135deg,
+        #2c2f34 0%,
+        #383c42 50%,
+        #2f3136 100%
+    );
     color: var(--text-main);
-    min-height: 100vh;
-    overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* ============================= */
+/* NAVBAR                        */
+/* ============================= */
 
 .navbar {
-    padding: 20px 24px;
+    position: absolute;
+    width: 100%;
+    padding: 24px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    z-index: 10;
 }
 
 .logo {
     font-weight: 800;
-    font-size: 18px;
     letter-spacing: 2px;
 }
 
-.nav-links {
-    font-size: 14px;
-    color: var(--text-sub);
-}
-
-/* HERO */
+/* ============================= */
+/* HERO                          */
+/* ============================= */
 
 .hero {
-    padding: 80px 24px 40px;
-    max-width: 1200px;
-    margin: auto;
+    height: 100vh;
+    background:
+        linear-gradient(
+            rgba(40,43,48,0.85),
+            rgba(40,43,48,0.95)
+        ),
+        url("IMG-20260212-WA0060.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.hero-content {
+    max-width: 700px;
 }
 
 .hero h1 {
-    font-size: 38px;
+    font-size: 44px;
     font-weight: 800;
-    line-height: 1.2;
     margin-bottom: 16px;
 }
 
@@ -73,177 +95,375 @@ body {
 }
 
 .hero p {
-    font-size: 16px;
     color: var(--text-sub);
-    max-width: 600px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-/* SEARCH CONTAINER */
+/* ============================= */
+/* SEARCH BOX                    */
+/* ============================= */
 
-.search-container {
-    background: rgba(27, 31, 39, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
+.search-box {
+    background: rgba(58,61,66,0.85);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    border-radius: 18px;
+    border-radius: 16px;
     display: grid;
-    gap: 14px;
-    box-shadow: 0 10px 40px rgba(0, 179, 255, 0.05);
-    transition: 0.3s ease;
+    gap: 12px;
+    border: 1px solid var(--border);
 }
 
-.search-container:hover {
-    border-color: var(--accent);
-}
-
-/* INPUTS */
-
-.search-container input,
-.search-container select {
-    background: var(--bg-secondary);
+.search-box input,
+.search-box select {
+    background: var(--dark-secondary);
     border: 1px solid var(--border);
     color: var(--text-main);
     padding: 14px;
-    border-radius: 12px;
-    font-size: 14px;
-    transition: 0.3s;
+    border-radius: 10px;
 }
 
-.search-container input:focus,
-.search-container select:focus {
-    border-color: var(--accent);
-    outline: none;
-}
-
-.search-container button {
+.search-box button {
     background: var(--accent);
+    color: #1e1f22;
     border: none;
     padding: 14px;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.search-container button:hover {
+.search-box button:hover {
+    background: var(--accent-soft);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,179,255,0.3);
 }
 
-/* STATS SECTION */
+/* ============================= */
+/* FEATURED SECTION              */
+/* ============================= */
 
-.stats {
-    margin-top: 60px;
+.featured {
+    padding: 80px 24px;
+    background:
+        linear-gradient(
+            rgba(40,43,48,0.95),
+            rgba(40,43,48,0.98)
+        ),
+        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* ============================= */
+/* PROPERTY CARDS                */
+/* ============================= */
+
+.grid {
     display: grid;
     gap: 20px;
 }
 
-.stat-box {
+.property-card {
     background: var(--card);
     padding: 24px;
-    border-radius: 16px;
+    border-radius: 18px;
     border: 1px solid var(--border);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.property-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.property-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.property-meta {
+    color: var(--text-sub);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.property-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ============================= */
+/* MODAL                         */
+/* ============================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 550px;
+    overflow: hidden;
+    animation: modalFade 0.3s ease forwards;
+    position: relative;
+}
+
+/* Modal Image */
+
+.modal-image-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.modal-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-sub);
     transition: 0.3s;
 }
 
-.stat-box:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
+.close-btn:hover {
+    color: var(--accent);
 }
 
-.stat-number {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 6px;
+#modalTitle {
+    font-size: 22px;
+    margin-bottom: 8px;
 }
 
-.stat-text {
+#modalMeta {
     color: var(--text-sub);
     font-size: 14px;
+    margin-bottom: 16px;
 }
 
-/* RESPONSIVE */
+#modalDescription {
+    font-size: 14px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+#modalPrice {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* ============================= */
+/* ANIMATION                     */
+/* ============================= */
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
 
 @media(min-width: 768px) {
 
     .hero h1 {
-        font-size: 50px;
+        font-size: 56px;
     }
 
-    .search-container {
+    .search-box {
         grid-template-columns: repeat(4, 1fr);
-        align-items: center;
     }
 
-    .stats {
+    .grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 </style>
 </head>
+<!-- PROPERTY DETAIL MODAL -->
+<div class="modal" id="propertyModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">✕</span>
+
+        <div class="modal-image-wrapper">
+            <img id="modalImage" src="" alt="Property Image">
+        </div>
+
+        <div class="modal-body">
+            <h2 id="modalTitle"></h2>
+            <p id="modalMeta"></p>
+            <p id="modalDescription"></p>
+            <h3 id="modalPrice"></h3>
+        </div>
+
+    </div>
+</div>
 
 <body>
 
 <div class="navbar">
     <div class="logo">DSM REAL ESTATE</div>
-    <div class="nav-links">Activos desde 2021</div>
+    <div>Activos desde 2021</div>
 </div>
 
 <section class="hero">
+    <div class="hero-content">
+        <h1>Propriedades que <span>valorizam</span> o seu futuro.</h1>
+        <p>
+            Desde 2021, a DSM Real Estate posiciona-se como referência
+            no mercado imobiliário premium em Moçambique,
+            oferecendo soluções residenciais e comerciais com foco
+            estratégico e valorização contínua.
+        </p>
 
-    <h1>Investimento imobiliário <span>seguro</span> e estratégico.</h1>
-
-    <p>
-        Desde 2021, a DSM Real Estate tem sido referência no mercado imobiliário moçambicano,
-        oferecendo propriedades residenciais e comerciais de alto padrão,
-        com foco em valorização, segurança e crescimento sustentável.
-    </p>
-
-    <div class="search-container">
-
-        <input type="text" placeholder="Localização (Maputo, Beira, Matola...)">
-
-        <select>
-            <option>Tipo de Imóvel</option>
-            <option>Apartamento</option>
-            <option>Moradia</option>
-            <option>Comercial</option>
-        </select>
-
-        <select>
-            <option>Orçamento Máximo</option>
-            <option>Até 5M MZN</option>
-            <option>Até 15M MZN</option>
-            <option>Acima de 20M MZN</option>
-        </select>
-
-        <button>Pesquisar Imóveis</button>
-
+        <div class="search-box">
+            <input type="text" id="location" placeholder="Localização">
+            <select id="type">
+                <option value="">Tipo</option>
+                <option>Apartamento</option>
+                <option>Moradia</option>
+                <option>Comercial</option>
+            </select>
+            <select id="budget">
+                <option value="">Orçamento</option>
+                <option value="5000000">Até 5M MZN</option>
+                <option value="15000000">Até 15M MZN</option>
+                <option value="30000000">Até 30M MZN</option>
+            </select>
+            <button onclick="filterProperties()">Pesquisar</button>
+        </div>
     </div>
-
-    <div class="stats">
-
-        <div class="stat-box">
-            <div class="stat-number">+120</div>
-            <div class="stat-text">Propriedades Vendidas</div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-number">98%</div>
-            <div class="stat-text">Taxa de Satisfação</div>
-        </div>
-
-        <div class="stat-box">
-            <div class="stat-number">4 Anos</div>
-            <div class="stat-text">Experiência no Mercado</div>
-        </div>
-
-    </div>
-
 </section>
+
+<section class="featured">
+    <div class="section-title">Propriedades em Destaque</div>
+    <div class="grid" id="propertyGrid"></div>
+</section>
+
+<script>
+
+const properties = [
+    {
+        title:"Moradia Executiva - Maputo",
+        type:"Moradia",
+        location:"Maputo",
+        price:25000000,
+        description:"5 Quartos • Piscina Privada • Segurança 24h • Área 480m²",
+        image:"IMG-20260212-WA0060.jpg"
+    },
+    {
+        title:"Apartamento Moderno - Polana",
+        type:"Apartamento",
+        location:"Maputo",
+        price:8500000,
+        description:"3 Quartos • Vista Mar • Smart Home • 180m²",
+        image:"IMG-20260212-WA0062.jpg"
+    },
+    {
+        title:"Espaço Comercial - Baixa",
+        type:"Comercial",
+        location:"Maputo",
+        price:18000000,
+        description:"1200m² • Zona Prime • Ideal para Escritórios Corporativos",
+        image:"IMG-20260212-WA0060.jpg"
+    }
+];
+
+function renderProperties(list) {
+    const grid = document.getElementById("propertyGrid");
+    grid.innerHTML = "";
+
+    list.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "property-card";
+        card.innerHTML = `
+            <div class="property-title">${p.title}</div>
+            <div class="property-meta">${p.type} • ${p.location}</div>
+            <div class="property-price">${p.price.toLocaleString()} MZN</div>
+        `;
+
+        card.addEventListener("click", () => openModal(p));
+
+        grid.appendChild(card);
+    });
+}
+function openModal(property) {
+
+    document.getElementById("modalTitle").innerText = property.title;
+    document.getElementById("modalMeta").innerText =
+        property.type + " • " + property.location;
+    document.getElementById("modalDescription").innerText =
+        property.description;
+    document.getElementById("modalPrice").innerText =
+        property.price.toLocaleString() + " MZN";
+
+    document.getElementById("modalImage").src = property.image;
+
+    document.getElementById("propertyModal").style.display = "flex";
+}
+
+
+function closeModal() {
+    document.getElementById("propertyModal").style.display = "none";
+}
+
+
+function filterProperties() {
+    const location = document.getElementById("location").value.toLowerCase();
+    const type = document.getElementById("type").value;
+    const budget = document.getElementById("budget").value;
+
+    const filtered = properties.filter(p =>
+        (!location || p.location.toLowerCase().includes(location)) &&
+        (!type || p.type === type) &&
+        (!budget || p.price <= budget)
+    );
+
+    renderProperties(filtered);
+}
+
+renderProperties(properties);
+
+</script>
 
 </body>
 </html>
+>
