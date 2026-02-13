@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DSM Real Estate</title>
+<title>DSM Real Estate - Dark Glow AC Theme</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ============================= */
-/* CLEAN WHITE CORPORATE THEME   */
+/* DARK ASSASSIN'S CREED GLOW THEME */
 /* ============================= */
 
 :root {
-    --bg-main: #ffffff;
-    --bg-secondary: #ffffff;
-    --card: #2f3136;
-    --border: #e1e3e6;
-    --accent: #2f3136;
-    --text-main: #1c1f23;
-    --text-sub: #6b7078;
-    --card-text: #f5f6f7;
+    --bg-main: #121212;
+    --bg-secondary: #1e1e1e;
+    --card: #1e1e1e;
+    --border: #333;
+    --accent: #2ecc71; /* AC stealth green glow */
+    --text-main: #e0e0e0;
+    --text-sub: #a0a0a0;
+    --card-text: #f5f5f5;
+    --hero-overlay: rgba(0,0,0,0.6);
+    --glow-text: 0 0 6px #2ecc71, 0 0 12px #2ecc71;
 }
 
 /* RESET */
@@ -54,30 +56,25 @@ body {
     letter-spacing: 2px;
     font-size: 48px;
     color: #ffffff;
-    text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff;
+    text-shadow: var(--glow-text);
+    position: relative;
 }
 
-/* Disco neon for subtitle */
-.disco-neon {
-    font-size: 20px;
-    font-weight: 700;
-    color: #001f5b;
-    text-shadow: 0 0 6px #001f5b, 0 0 12px #003080, 0 0 18px #0050ff, 0 0 24px #0070ff;
-    animation: neonDance 1.2s infinite alternate;
-    margin-top: 6px;
+/* blinking cursor */
+.navbar .logo::after {
+    content: '|';
+    color: var(--accent);
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+}
+@keyframes blinkCursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-@keyframes neonDance {
-    0% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
-    25% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(-2px); }
-    50% { text-shadow: 0 0 10px #001f5b,0 0 20px #003080,0 0 26px #0050ff,0 0 32px #0070ff; transform: translateY(0); }
-    75% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(2px); }
-    100% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
-}
-
-/* HERO */
+/* Hero Section */
 .hero {
-    min-height: 100vh; 
+    min-height: 100vh;
     background: url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -87,8 +84,18 @@ body {
     text-align: center;
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 0;
+}
+
 .hero-content {
     max-width: 700px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -96,20 +103,38 @@ body {
     font-weight: 800;
     margin-bottom: 16px;
     color: #ffffff;
-    text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff;
+    text-shadow: 0 0 8px #2ecc71, 0 0 16px #2ecc71;
 }
 
-.hero p {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 1.6;
-    text-shadow: 0 0 8px rgba(255,255,255,0.8);
-    margin-bottom: 30px;
+.hero p.disco-neon {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2ecc71;
+    text-shadow: 0 0 6px #2ecc71, 0 0 12px #2ecc71, 0 0 18px #1abc50;
+    animation: neonDance 1.5s infinite alternate;
+    margin-top: 6px;
+}
+
+@keyframes neonDance {
+    0% { text-shadow: 0 0 6px #2ecc71,0 0 12px #2ecc71; transform: translateY(0); }
+    25% { text-shadow: 0 0 8px #2ecc71,0 0 16px #27ae60; transform: translateY(-2px); }
+    50% { text-shadow: 0 0 10px #2ecc71,0 0 20px #2ecc71; transform: translateY(0); }
+    75% { text-shadow: 0 0 8px #2ecc71,0 0 16px #27ae60; transform: translateY(2px); }
+    100% { text-shadow: 0 0 6px #2ecc71,0 0 12px #2ecc71; transform: translateY(0); }
+}
+
+.hero-description {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    line-height: 1.8;
+    color: #e0e0e0;
+    text-shadow: 0 0 4px rgba(46,204,113,0.5);
+    font-weight: 600;
+    margin-top: 20px;
 }
 
 /* SEARCH BOX */
 .search-box {
-    background: var(--bg-main);
+    background: var(--bg-secondary);
     padding: 20px;
     border-radius: 16px;
     display: grid;
@@ -120,38 +145,41 @@ body {
 
 .search-box input,
 .search-box select {
-    background: var(--bg-main);
-    border: 1px solid var(--border);
+    background: #1a1a1a;
+    border: 1px solid #333;
     color: var(--text-main);
     padding: 14px;
     border-radius: 10px;
 }
 
 .search-box button {
-    background: var(--accent);
-    color: white;
+    background: #2ecc71;
+    color: #111;
     border: none;
     padding: 14px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 0 10px #2ecc71;
     transition: 0.3s ease;
 }
 
 .search-box button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60;
 }
 
 /* FEATURED SECTION */
 .featured {
     padding: 80px 24px;
-    background: var(--bg-secondary);
+    background: var(--bg-main);
 }
 
 .section-title {
     font-size: 28px;
     font-weight: 700;
+    color: #e0e0e0;
+    text-shadow: 0 0 6px #2ecc71;
     margin-bottom: 40px;
 }
 
@@ -169,11 +197,12 @@ body {
     transition: 0.3s ease;
     cursor: pointer;
     color: var(--card-text);
+    box-shadow: 0 0 4px #2ecc71;
 }
 
 .property-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    box-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60;
 }
 
 .property-title {
@@ -182,7 +211,7 @@ body {
 }
 
 .property-meta {
-    color: #c2c5ca;
+    color: #a0a0a0;
     font-size: 14px;
     margin-bottom: 10px;
 }
@@ -190,43 +219,36 @@ body {
 .property-price {
     font-size: 20px;
     font-weight: 700;
+    color: #2ecc71;
 }
 
 /* MODAL */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.85);
     display: none;
     justify-content: center;
     align-items: center;
     padding: 20px;
     z-index: 1000;
 }
-.hero-description {
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    line-height: 1.8;
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(255,255,255,0.8);
-    font-weight: 600;
-    margin-top: 20px;
-}
 
 .modal-content {
     background: var(--card);
     border-radius: 20px;
     width: 100%;
-    max-width: 550px;
+    max-width: 600px;
     overflow: hidden;
     animation: modalFade 0.3s ease forwards;
     position: relative;
     color: var(--card-text);
+    box-shadow: 0 0 20px #2ecc71;
 }
 
 .modal-image-wrapper {
     width: 100%;
-    height: 240px;
+    height: 280px;
     overflow: hidden;
 }
 
@@ -245,8 +267,8 @@ body {
     top: 16px;
     right: 20px;
     cursor: pointer;
-    font-size: 14px;
-    color: var(--card-text);
+    font-size: 18px;
+    color: #2ecc71;
     transition: 0.3s;
 }
 
@@ -255,9 +277,9 @@ body {
 }
 
 #modalTitle { font-size: 22px; margin-bottom: 8px; }
-#modalMeta { color: #c2c5ca; font-size: 14px; margin-bottom: 16px; }
+#modalMeta { color: #a0a0a0; font-size: 14px; margin-bottom: 16px; }
 #modalDescription { font-size: 14px; margin-bottom: 18px; line-height: 1.6; }
-#modalPrice { font-size: 20px; font-weight: 700; }
+#modalPrice { font-size: 20px; font-weight: 700; color: #2ecc71; }
 
 @keyframes modalFade {
     from { opacity: 0; transform: scale(0.95); }
@@ -266,9 +288,7 @@ body {
 
 /* RESPONSIVE */
 @media (min-width: 768px) {
-    .search-box {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    .search-box { grid-template-columns: repeat(4, 1fr); }
 }
 </style>
 </head>
@@ -283,11 +303,9 @@ body {
   <div class="hero-content">
     <h1></h1>
     <p class="disco-neon"></p>
-    <h2><span></span></h2>
     <p class="hero-description">
-      Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.
+        Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.
     </p>
-
     <div class="search-box">
         <input type="text" id="location" placeholder="Localização">
         <select id="type">
@@ -328,6 +346,7 @@ body {
 </div>
 
 <script>
+// property data
 const properties = [
     { title:"Moradia Executiva - Maputo", type:"Moradia", location:"Maputo", price:25000000, description:"5 Quartos • Piscina Privada • Segurança 24h • Área 480m²", image:"IMG-20260212-WA0060.jpg" },
     { title:"Apartamento Moderno - Polana", type:"Apartamento", location:"Maputo", price:8500000, description:"3 Quartos • Vista Mar • Smart Home • 180m²", image:"IMG-20260212-WA0062.jpg" },
@@ -337,7 +356,7 @@ const properties = [
 function renderProperties(list) {
     const grid = document.getElementById("propertyGrid");
     grid.innerHTML = "";
-    list.forEach((p) => {
+    list.forEach(p => {
         const card = document.createElement("div");
         card.className = "property-card";
         card.innerHTML = `
@@ -367,27 +386,25 @@ function filterProperties() {
     const location = document.getElementById("location").value.toLowerCase();
     const type = document.getElementById("type").value;
     const budget = document.getElementById("budget").value;
-
     const filtered = properties.filter(p =>
         (!location || p.location.toLowerCase().includes(location)) &&
         (!type || p.type === type) &&
         (!budget || p.price <= budget)
     );
-
     renderProperties(filtered);
 }
 
 renderProperties(properties);
 
+/* typing effect for logo */
 const logoText = "DSM REAL ESTATE";
 const logoElement = document.getElementById("logoText");
 let i = 0;
 function typeWriter() {
     if(i < logoText.length){
-      logoElement.style.width = (i + 1) + "ch";
-      logoElement.textContent += logoText.charAt(i);
-      i++;
-      setTimeout(typeWriter, 120);
+        logoElement.textContent += logoText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 120);
     }
 }
 typeWriter();
@@ -395,4 +412,3 @@ typeWriter();
 
 </body>
 </html>
-
