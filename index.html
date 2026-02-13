@@ -9,18 +9,18 @@
 
 <style>
 /* ============================= */
-/* CLEAN CORPORATE WHITE THEME   */
+/* CLEAN WHITE CORPORATE THEME   */
 /* ============================= */
 
 :root {
-    --bg-main: #f4f5f7;          /* soft white */
+    --bg-main: #ffffff;          /* full white background */
     --bg-secondary: #ffffff;
     --card: #2f3136;             /* dark smokey card */
-    --border: #e1e3e6;
-    --accent: #2f3136;           /* dark accent */
-    --text-main: #1c1f23;
-    --text-sub: #6b7078;
-    --card-text: #f5f6f7;
+    --border: #e1e3e6;           /* subtle border for cards */
+    --accent: #2f3136;           /* dark accent for buttons/text */
+    --text-main: #1c1f23;        /* dark text for readability */
+    --text-sub: #6b7078;         /* secondary text */
+    --card-text: #f5f6f7;        /* text inside dark cards */
 }
 
 /* RESET */
@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     z-index: 10;
-    color: white;
+    color: var(--text-main);
 }
 
 .logo {
@@ -67,15 +67,11 @@ body {
 .hero {
     height: 100vh;
     background:
-        linear-gradient(
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.75)
-        ),
         url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     padding: 0 24px;
-    color: white;
+    color: var(--text-main);
 }
 
 .hero-content {
@@ -89,11 +85,11 @@ body {
 }
 
 .hero span {
-    color: #ffffff;
+    color: var(--accent);
 }
 
 .hero p {
-    color: #d6d6d6;
+    color: var(--text-sub);
     margin-bottom: 30px;
     line-height: 1.6;
 }
@@ -103,18 +99,17 @@ body {
 /* ============================= */
 
 .search-box {
-    background: rgba(255,255,255,0.95);
+    background: var(--bg-main);
     padding: 20px;
     border-radius: 16px;
     display: grid;
     gap: 12px;
     border: 1px solid var(--border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .search-box input,
 .search-box select {
-    background: #ffffff;
+    background: var(--bg-main);
     border: 1px solid var(--border);
     color: var(--text-main);
     padding: 14px;
@@ -208,14 +203,14 @@ body {
 }
 
 .modal-content {
-    background: #ffffff;
+    background: var(--card); /* keep dark modal */
     border-radius: 20px;
     width: 100%;
     max-width: 550px;
     overflow: hidden;
     animation: modalFade 0.3s ease forwards;
     position: relative;
-    color: var(--text-main);
+    color: var(--card-text);
 }
 
 /* Modal Image */
@@ -242,12 +237,12 @@ body {
     right: 20px;
     cursor: pointer;
     font-size: 14px;
-    color: var(--text-sub);
+    color: var(--card-text);
     transition: 0.3s;
 }
 
 .close-btn:hover {
-    color: black;
+    color: #ffffff;
 }
 
 #modalTitle {
@@ -256,7 +251,7 @@ body {
 }
 
 #modalMeta {
-    color: var(--text-sub);
+    color: #c2c5ca;
     font-size: 14px;
     margin-bottom: 16px;
 }
