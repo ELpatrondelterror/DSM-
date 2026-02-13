@@ -67,11 +67,16 @@ body {
 /* HERO SECTION REFINED          */
 /* ============================= */
 
+/* ============================= */
+/* HERO SECTION REFINED          */
+/* ============================= */
+
 .hero {
-    height: 100vh;
-    background: url("IMG-20260212-WA0062.jpg") center center / cover no-repeat;
+    height: 80vh; /* reduced height so image quality stays sharp */
+    background: url("IMG-20260212-WA0062.jpg") center center / contain no-repeat;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     padding: 0 24px;
     color: #ffffff;
     position: relative;
@@ -82,7 +87,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35); /* soft dark overlay */
+    background: rgba(0,0,0,0.25); /* soft overlay */
 }
 
 /* Hero content */
@@ -92,21 +97,26 @@ body {
     z-index: 1;
 }
 
-/* Main hero title */
+/* Main glowing title */
 .hero h1 {
-    font-size: 46px;
-    font-weight: 800;
+    font-size: 56px;
+    font-weight: 900;
     margin-bottom: 16px;
     color: #ffffff;
-    text-shadow: 0 0 12px rgba(255,255,255,0.9); /* glowing white */
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 6px #ffffff,
+        0 0 12px #ffffff,
+        0 0 18px #ffffff,
+        0 0 24px rgba(255,255,255,0.6);
 }
 
-/* Glowing subtitle paragraph */
+/* Subtitle paragraph */
 .hero p {
-    color: #ffffff;
+    color: #f1f1f1;
     font-size: 18px;
     line-height: 1.6;
-    text-shadow: 0 0 8px rgba(255,255,255,0.8); /* subtle glow */
+    text-shadow: 0 0 6px rgba(255,255,255,0.5); /* subtle glow */
     margin-bottom: 30px;
 }
 
