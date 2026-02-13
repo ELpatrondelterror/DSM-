@@ -8,21 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* MODAL STYLES */
 /* ============================= */
-/* CORPORATE SMOKEY LUXURY THEME */
+/* CLEAN CORPORATE WHITE THEME   */
 /* ============================= */
 
 :root {
-    --dark-main: #2f3136;        /* 50% dark grey */
-    --dark-secondary: #3a3d42;   /* layer grey */
-    --card: #44484f;             /* card smokey grey */
-    --border: #5a5f66;           /* soft border */
-    --accent: #c6c9cf;           /* silver highlight */
-    --accent-soft: #9da3aa;      /* muted silver */
-    --text-main: #f5f6f7;
-    --text-sub: #b4b8be;
+    --bg-main: #f4f5f7;          /* soft white */
+    --bg-secondary: #ffffff;
+    --card: #2f3136;             /* dark smokey card */
+    --border: #e1e3e6;
+    --accent: #2f3136;           /* dark accent */
+    --text-main: #1c1f23;
+    --text-sub: #6b7078;
+    --card-text: #f5f6f7;
 }
+
+/* RESET */
 
 * {
     margin: 0;
@@ -36,12 +37,7 @@
 /* ============================= */
 
 body {
-    background: linear-gradient(
-        135deg,
-        #2c2f34 0%,
-        #383c42 50%,
-        #2f3136 100%
-    );
+    background: var(--bg-main);
     color: var(--text-main);
 }
 
@@ -56,6 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     z-index: 10;
+    color: white;
 }
 
 .logo {
@@ -71,13 +68,14 @@ body {
     height: 100vh;
     background:
         linear-gradient(
-            rgba(40,43,48,0.85),
-            rgba(40,43,48,0.95)
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.75)
         ),
-        url("IMG-20260212-WA0060.jpg") center/cover no-repeat;
+        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
     padding: 0 24px;
+    color: white;
 }
 
 .hero-content {
@@ -91,11 +89,11 @@ body {
 }
 
 .hero span {
-    color: var(--accent);
+    color: #ffffff;
 }
 
 .hero p {
-    color: var(--text-sub);
+    color: #d6d6d6;
     margin-bottom: 30px;
     line-height: 1.6;
 }
@@ -105,18 +103,18 @@ body {
 /* ============================= */
 
 .search-box {
-    background: rgba(58,61,66,0.85);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 16px;
     display: grid;
     gap: 12px;
     border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .search-box input,
 .search-box select {
-    background: var(--dark-secondary);
+    background: #ffffff;
     border: 1px solid var(--border);
     color: var(--text-main);
     padding: 14px;
@@ -125,18 +123,18 @@ body {
 
 .search-box button {
     background: var(--accent);
-    color: #1e1f22;
+    color: white;
     border: none;
     padding: 14px;
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .search-box button:hover {
-    background: var(--accent-soft);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* ============================= */
@@ -145,12 +143,7 @@ body {
 
 .featured {
     padding: 80px 24px;
-    background:
-        linear-gradient(
-            rgba(40,43,48,0.95),
-            rgba(40,43,48,0.98)
-        ),
-        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
+    background: var(--bg-secondary);
 }
 
 .section-title {
@@ -172,15 +165,14 @@ body {
     background: var(--card);
     padding: 24px;
     border-radius: 18px;
-    border: 1px solid var(--border);
     transition: 0.3s ease;
     cursor: pointer;
+    color: var(--card-text);
 }
 
 .property-card:hover {
     transform: translateY(-6px);
-    border-color: var(--accent);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .property-title {
@@ -189,7 +181,7 @@ body {
 }
 
 .property-meta {
-    color: var(--text-sub);
+    color: #c2c5ca;
     font-size: 14px;
     margin-bottom: 10px;
 }
@@ -197,7 +189,6 @@ body {
 .property-price {
     font-size: 20px;
     font-weight: 700;
-    color: var(--accent);
 }
 
 /* ============================= */
@@ -207,7 +198,7 @@ body {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(6px);
     display: none;
     justify-content: center;
@@ -217,14 +208,14 @@ body {
 }
 
 .modal-content {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: #ffffff;
     border-radius: 20px;
     width: 100%;
     max-width: 550px;
     overflow: hidden;
     animation: modalFade 0.3s ease forwards;
     position: relative;
+    color: var(--text-main);
 }
 
 /* Modal Image */
@@ -256,7 +247,7 @@ body {
 }
 
 .close-btn:hover {
-    color: var(--accent);
+    color: black;
 }
 
 #modalTitle {
@@ -279,7 +270,6 @@ body {
 #modalPrice {
     font-size: 20px;
     font-weight: 700;
-    color: var(--accent);
 }
 
 /* ============================= */
