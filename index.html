@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSM Real Estate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --bg-main: #0c0f14;
+    --bg-secondary: #131720;
+    --card: #1b1f27;
+    --border: #252b36;
+    --accent: #00b3ff;
+    --text-main: #e6edf3;
+    --text-sub: #8b949e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top left, #11151c, #0c0f14 60%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+/* HERO */
+
+.hero {
+    padding: 80px 24px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.hero span {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--text-sub);
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+/* SEARCH CONTAINER */
+
+.search-container {
+    background: rgba(27, 31, 39, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 18px;
+    display: grid;
+    gap: 14px;
+    box-shadow: 0 10px 40px rgba(0, 179, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.search-container:hover {
+    border-color: var(--accent);
+}
+
+/* INPUTS */
+
+.search-container input,
+.search-container select {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-container input:focus,
+.search-container select:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.search-container button {
+    background: var(--accent);
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,179,255,0.3);
+}
+
+/* STATS SECTION */
+
+.stats {
+    margin-top: 60px;
+    display: grid;
+    gap: 20px;
+}
+
+.stat-box {
+    background: var(--card);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.stat-number {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.stat-text {
+    color: var(--text-sub);
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media(min-width: 768px) {
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .search-container {
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+    }
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">DSM REAL ESTATE</div>
+    <div class="nav-links">Activos desde 2021</div>
+</div>
+
+<section class="hero">
+
+    <h1>Investimento imobiliário <span>seguro</span> e estratégico.</h1>
+
+    <p>
+        Desde 2021, a DSM Real Estate tem sido referência no mercado imobiliário moçambicano,
+        oferecendo propriedades residenciais e comerciais de alto padrão,
+        com foco em valorização, segurança e crescimento sustentável.
+    </p>
+
+    <div class="search-container">
+
+        <input type="text" placeholder="Localização (Maputo, Beira, Matola...)">
+
+        <select>
+            <option>Tipo de Imóvel</option>
+            <option>Apartamento</option>
+            <option>Moradia</option>
+            <option>Comercial</option>
+        </select>
+
+        <select>
+            <option>Orçamento Máximo</option>
+            <option>Até 5M MZN</option>
+            <option>Até 15M MZN</option>
+            <option>Acima de 20M MZN</option>
+        </select>
+
+        <button>Pesquisar Imóveis</button>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat-box">
+            <div class="stat-number">+120</div>
+            <div class="stat-text">Propriedades Vendidas</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-number">98%</div>
+            <div class="stat-text">Taxa de Satisfação</div>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-number">4 Anos</div>
+            <div class="stat-text">Experiência no Mercado</div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
