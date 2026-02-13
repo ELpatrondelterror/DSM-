@@ -12,23 +12,18 @@
 /* CLEAN WHITE CORPORATE THEME   */
 /* ============================= */
 
-/* ============================= */
-/* CLEAN CORPORATE WHITE THEME   */
-/* ============================= */
-
 :root {
-    --bg-main: #f4f5f7;          /* soft white */
+    --bg-main: #ffffff;
     --bg-secondary: #ffffff;
-    --card: #2f3136;             /* dark smokey card */
+    --card: #2f3136;
     --border: #e1e3e6;
-    --accent: #2f3136;           /* dark accent */
+    --accent: #2f3136;
     --text-main: #1c1f23;
     --text-sub: #6b7078;
     --card-text: #f5f6f7;
 }
 
 /* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -36,50 +31,60 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* ============================= */
-/* BODY                          */
-/* ============================= */
-
+/* BODY */
 body {
     background: var(--bg-main);
     color: var(--text-main);
 }
 
-/* ============================= */
-/* NAVBAR                        */
-/* ============================= */
-
+/* NAVBAR */
 .navbar {
     position: absolute;
     width: 100%;
     padding: 24px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     z-index: 10;
-    color: white;
+    text-align: center;
 }
 
-.logo {
+.navbar .logo {
     font-weight: 800;
     letter-spacing: 2px;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff;
 }
 
-/* ============================= */
-/* HERO                          */
-/* ============================= */
+/* Disco neon for subtitle */
+.disco-neon {
+    font-size: 20px;
+    font-weight: 700;
+    color: #001f5b;
+    text-shadow: 0 0 6px #001f5b, 0 0 12px #003080, 0 0 18px #0050ff, 0 0 24px #0070ff;
+    animation: neonDance 1.2s infinite alternate;
+    margin-top: 6px;
+}
 
+@keyframes neonDance {
+    0% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
+    25% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(-2px); }
+    50% { text-shadow: 0 0 10px #001f5b,0 0 20px #003080,0 0 26px #0050ff,0 0 32px #0070ff; transform: translateY(0); }
+    75% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(2px); }
+    100% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
+}
+
+/* HERO */
 .hero {
     height: 100vh;
-    background:
-        linear-gradient(
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.75)
-        ),
-        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
+    background: url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 24px;
-    color: white;
+    position: relative;
+    text-align: center;
 }
 
 .hero-content {
@@ -87,38 +92,35 @@ body {
 }
 
 .hero h1 {
-    font-size: 44px;
+    font-size: 46px;
     font-weight: 800;
     margin-bottom: 16px;
-}
-
-.hero span {
     color: #ffffff;
+    text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff, 0 0 36px #ffffff;
 }
 
 .hero p {
-    color: #d6d6d6;
-    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 18px;
     line-height: 1.6;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    margin-bottom: 30px;
 }
 
-/* ============================= */
-/* SEARCH BOX                    */
-/* ============================= */
-
+/* SEARCH BOX */
 .search-box {
-    background: rgba(255,255,255,0.95);
+    background: var(--bg-main);
     padding: 20px;
     border-radius: 16px;
     display: grid;
     gap: 12px;
     border: 1px solid var(--border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }
 
 .search-box input,
 .search-box select {
-    background: #ffffff;
+    background: var(--bg-main);
     border: 1px solid var(--border);
     color: var(--text-main);
     padding: 14px;
@@ -141,10 +143,7 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* ============================= */
-/* FEATURED SECTION              */
-/* ============================= */
-
+/* FEATURED SECTION */
 .featured {
     padding: 80px 24px;
     background: var(--bg-secondary);
@@ -156,10 +155,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* ============================= */
-/* PROPERTY CARDS                */
-/* ============================= */
-
+/* PROPERTY CARDS */
 .grid {
     display: grid;
     gap: 20px;
@@ -195,10 +191,7 @@ body {
     font-weight: 700;
 }
 
-/* ============================= */
-/* MODAL                         */
-/* ============================= */
-
+/* MODAL */
 .modal {
     position: fixed;
     inset: 0;
@@ -212,17 +205,15 @@ body {
 }
 
 .modal-content {
-    background: #ffffff;
+    background: var(--card);
     border-radius: 20px;
     width: 100%;
     max-width: 550px;
     overflow: hidden;
     animation: modalFade 0.3s ease forwards;
     position: relative;
-    color: var(--text-main);
+    color: var(--card-text);
 }
-
-/* Modal Image */
 
 .modal-image-wrapper {
     width: 100%;
@@ -246,138 +237,89 @@ body {
     right: 20px;
     cursor: pointer;
     font-size: 14px;
-    color: var(--text-sub);
+    color: var(--card-text);
     transition: 0.3s;
 }
 
 .close-btn:hover {
-    color: black;
+    color: #ffffff;
 }
 
-#modalTitle {
-    font-size: 22px;
-    margin-bottom: 8px;
-}
-
-#modalMeta {
-    color: var(--text-sub);
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-
-#modalDescription {
-    font-size: 14px;
-    margin-bottom: 18px;
-    line-height: 1.6;
-}
-
-#modalPrice {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-/* ============================= */
-/* ANIMATION                     */
-/* ============================= */
+#modalTitle { font-size: 22px; margin-bottom: 8px; }
+#modalMeta { color: #c2c5ca; font-size: 14px; margin-bottom: 16px; }
+#modalDescription { font-size: 14px; margin-bottom: 18px; line-height: 1.6; }
+#modalPrice { font-size: 20px; font-weight: 700; }
 
 @keyframes modalFade {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* ============================= */
-/* RESPONSIVE                    */
-/* ============================= */
-
+/* RESPONSIVE */
 @media(min-width: 768px) {
-
-    .hero h1 {
-        font-size: 56px;
-    }
-
-    .search-box {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .hero h1 { font-size: 56px; }
+    .search-box { grid-template-columns: repeat(4, 1fr); }
+    .grid { grid-template-columns: repeat(3, 1fr); }
 }
-
 
 </style>
 </head>
-<!-- PROPERTY DETAIL MODAL -->
-<div class="modal" id="propertyModal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">✕</span>
-
-        <div class="modal-image-wrapper">
-            <img id="modalImage" src="" alt="Property Image">
-        </div>
-
-        <div class="modal-body">
-            <h2 id="modalTitle"></h2>
-            <p id="modalMeta"></p>
-            <p id="modalDescription"></p>
-            <h3 id="modalPrice"></h3>
-        </div>
-
-    </div>
-</div>
-
 <body>
+
+<div class="navbar">
+    <div class="logo" id="logoText"></div>
+    <div class="disco-neon">Activos desde 2021</div>
+</div>
 
 <div class="hero">
   <div class="hero-content">
     <h1>DSM REAL ESTATE</h1>
     <p class="disco-neon">Activos desde 2021</p>
+
+    <h2>Propriedades que <span>valorizam</span> o seu futuro.</h2>
+    <p>Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.</p>
+
+    <div class="search-box">
+        <input type="text" id="location" placeholder="Localização">
+        <select id="type">
+            <option value="">Tipo</option>
+            <option>Apartamento</option>
+            <option>Moradia</option>
+            <option>Comercial</option>
+        </select>
+        <select id="budget">
+            <option value="">Orçamento</option>
+            <option value="5000000">Até 5M MZN</option>
+            <option value="15000000">Até 15M MZN</option>
+            <option value="30000000">Até 30M MZN</option>
+        </select>
+        <button onclick="filterProperties()">Pesquisar</button>
+    </div>
   </div>
 </div>
-
-
-<section class="hero">
-    <div class="hero-content">
-        <h1>Propriedades que <span>valorizam</span> o seu futuro.</h1>
-        <p>
-            Desde 2021, a DSM Real Estate posiciona-se como referência
-            no mercado imobiliário premium em Moçambique,
-            oferecendo soluções residenciais e comerciais com foco
-            estratégico e valorização contínua.
-        </p>
-
-        <div class="search-box">
-            <input type="text" id="location" placeholder="Localização">
-            <select id="type">
-                <option value="">Tipo</option>
-                <option>Apartamento</option>
-                <option>Moradia</option>
-                <option>Comercial</option>
-            </select>
-            <select id="budget">
-                <option value="">Orçamento</option>
-                <option value="5000000">Até 5M MZN</option>
-                <option value="15000000">Até 15M MZN</option>
-                <option value="30000000">Até 30M MZN</option>
-            </select>
-            <button onclick="filterProperties()">Pesquisar</button>
-        </div>
-    </div>
-</section>
 
 <section class="featured">
     <div class="section-title">Propriedades em Destaque</div>
     <div class="grid" id="propertyGrid"></div>
 </section>
 
-<script>
+<!-- PROPERTY DETAIL MODAL -->
+<div class="modal" id="propertyModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">✕</span>
+        <div class="modal-image-wrapper">
+            <img id="modalImage" src="" alt="Property Image">
+        </div>
+        <div class="modal-body">
+            <h2 id="modalTitle"></h2>
+            <p id="modalMeta"></p>
+            <p id="modalDescription"></p>
+            <h3 id="modalPrice"></h3>
+        </div>
+    </div>
+</div>
 
+<script>
 const properties = [
     {
         title:"Moradia Executiva - Maputo",
@@ -408,7 +350,6 @@ const properties = [
 function renderProperties(list) {
     const grid = document.getElementById("propertyGrid");
     grid.innerHTML = "";
-
     list.forEach((p) => {
         const card = document.createElement("div");
         card.className = "property-card";
@@ -417,32 +358,23 @@ function renderProperties(list) {
             <div class="property-meta">${p.type} • ${p.location}</div>
             <div class="property-price">${p.price.toLocaleString()} MZN</div>
         `;
-
         card.addEventListener("click", () => openModal(p));
-
         grid.appendChild(card);
     });
 }
+
 function openModal(property) {
-
     document.getElementById("modalTitle").innerText = property.title;
-    document.getElementById("modalMeta").innerText =
-        property.type + " • " + property.location;
-    document.getElementById("modalDescription").innerText =
-        property.description;
-    document.getElementById("modalPrice").innerText =
-        property.price.toLocaleString() + " MZN";
-
+    document.getElementById("modalMeta").innerText = property.type + " • " + property.location;
+    document.getElementById("modalDescription").innerText = property.description;
+    document.getElementById("modalPrice").innerText = property.price.toLocaleString() + " MZN";
     document.getElementById("modalImage").src = property.image;
-
     document.getElementById("propertyModal").style.display = "flex";
 }
-
 
 function closeModal() {
     document.getElementById("propertyModal").style.display = "none";
 }
-
 
 function filterProperties() {
     const location = document.getElementById("location").value.toLowerCase();
@@ -459,24 +391,21 @@ function filterProperties() {
 }
 
 renderProperties(properties);
-  const logoText = "DSM REAL ESTATE";
-  const logoElement = document.getElementById("logoText");
-  let i = 0;
 
-  function typeWriter() {
+/* DSM REAL ESTATE typing effect */
+const logoText = "DSM REAL ESTATE";
+const logoElement = document.getElementById("logoText");
+let i = 0;
+function typeWriter() {
     if(i < logoText.length){
-      logoElement.style.width = (i + 1) + "ch"; // expand width per char
+      logoElement.style.width = (i + 1) + "ch";
       logoElement.textContent += logoText.charAt(i);
       i++;
-      setTimeout(typeWriter, 120); // typing speed
-    } else {
-      logoElement.style.borderRight = "none"; // remove cursor after typing
+      setTimeout(typeWriter, 120);
     }
-  }
-
-  typeWriter();
+}
+typeWriter();
 </script>
 
 </body>
 </html>
->
