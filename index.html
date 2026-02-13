@@ -70,13 +70,15 @@ body {
 /* ============================= */
 /* HERO SECTION REFINED          */
 /* ============================= */
+/* ============================= */
+/* HERO SECTION REFINED          */
+/* ============================= */
 
 .hero {
-    height: 80vh; /* reduced height so image quality stays sharp */
-    background: url("IMG-20260212-WA0062.jpg") center center / contain no-repeat;
+    height: 100vh;
+    background: url("IMG-20260212-WA0062.jpg") center center / cover no-repeat;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     padding: 0 24px;
     color: #ffffff;
     position: relative;
@@ -87,7 +89,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.25); /* soft overlay */
+    background: rgba(0,0,0,0.35); /* soft dark overlay */
 }
 
 /* Hero content */
@@ -97,26 +99,21 @@ body {
     z-index: 1;
 }
 
-/* Main glowing title */
+/* Main hero title */
 .hero h1 {
-    font-size: 56px;
-    font-weight: 900;
+    font-size: 46px;
+    font-weight: 800;
     margin-bottom: 16px;
     color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 
-        0 0 6px #ffffff,
-        0 0 12px #ffffff,
-        0 0 18px #ffffff,
-        0 0 24px rgba(255,255,255,0.6);
+    text-shadow: 0 0 12px rgba(255,255,255,0.9); /* glowing white */
 }
 
-/* Subtitle paragraph */
+/* Glowing subtitle paragraph */
 .hero p {
-    color: #f1f1f1;
+    color: #ffffff;
     font-size: 18px;
     line-height: 1.6;
-    text-shadow: 0 0 6px rgba(255,255,255,0.5); /* subtle glow */
+    text-shadow: 0 0 8px rgba(255,255,255,0.8); /* subtle glow */
     margin-bottom: 30px;
 }
 
@@ -354,6 +351,22 @@ body {
 <div class="navbar">
     <div class="logo">DSM REAL ESTATE</div>
     <div>Activos desde 2021</div>
+<div class="navbar" style="width: 100%; display: flex; justify-content: center; align-items: center; padding: 40px 0; position: relative; background: white;">
+  <div id="logoText" style="
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 
+          0 0 6px #ffffff,
+          0 0 12px #ffffff,
+          0 0 18px #ffffff,
+          0 0 24px rgba(255,255,255,0.6);
+      font-family: 'Inter', sans-serif;
+      border-right: 2px solid #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      "></div>
 </div>
 
 <section class="hero">
@@ -473,7 +486,22 @@ function filterProperties() {
 }
 
 renderProperties(properties);
+  const logoText = "DSM REAL ESTATE";
+  const logoElement = document.getElementById("logoText");
+  let i = 0;
 
+  function typeWriter() {
+    if(i < logoText.length){
+      logoElement.style.width = (i + 1) + "ch"; // expand width per char
+      logoElement.textContent += logoText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 120); // typing speed
+    } else {
+      logoElement.style.borderRight = "none"; // remove cursor after typing
+    }
+  }
+
+  typeWriter();
 </script>
 
 </body>
