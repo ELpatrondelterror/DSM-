@@ -63,36 +63,53 @@ body {
 /* ============================= */
 /* HERO                          */
 /* ============================= */
+/* ============================= */
+/* HERO SECTION REFINED          */
+/* ============================= */
 
 .hero {
     height: 100vh;
-    background:
-        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
+    background: url("IMG-20260212-WA0062.jpg") center center / cover no-repeat;
     display: flex;
     align-items: center;
     padding: 0 24px;
-    color: var(--text-main);
+    color: #ffffff;
+    position: relative;
 }
 
+/* Optional overlay for readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35); /* soft dark overlay */
+}
+
+/* Hero content */
 .hero-content {
+    position: relative; /* keep above overlay */
     max-width: 700px;
+    z-index: 1;
 }
 
+/* Main hero title */
 .hero h1 {
-    font-size: 44px;
+    font-size: 46px;
     font-weight: 800;
     margin-bottom: 16px;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.9); /* glowing white */
 }
 
-.hero span {
-    color: var(--accent);
-}
-
+/* Glowing subtitle paragraph */
 .hero p {
-    color: var(--text-sub);
-    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 18px;
     line-height: 1.6;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8); /* subtle glow */
+    margin-bottom: 30px;
 }
+
 
 /* ============================= */
 /* SEARCH BOX                    */
