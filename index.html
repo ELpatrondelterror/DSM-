@@ -76,7 +76,7 @@ body {
 }
 
 /* HERO */
-    .hero {
+.hero {
     min-height: 100vh; 
     background: url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
@@ -117,7 +117,6 @@ body {
     border: 1px solid var(--border);
     margin-top: 40px;
 }
-
 
 .search-box input,
 .search-box select {
@@ -266,12 +265,11 @@ body {
 }
 
 /* RESPONSIVE */
-
 @media (min-width: 768px) {
     .search-box {
         grid-template-columns: repeat(4, 1fr);
     }
-
+}
 </style>
 </head>
 <body>
@@ -285,15 +283,10 @@ body {
   <div class="hero-content">
     <h1></h1>
     <p class="disco-neon"></p>
-
-    <h2> <span></span></h2>
-<p class="hero-description">
-    Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.
-</p>
-
-
-
-
+    <h2><span></span></h2>
+    <p class="hero-description">
+      Desde 2021, a DSM Real Estate posiciona-se como referência no mercado imobiliário premium em Moçambique, oferecendo soluções residenciais e comerciais com foco estratégico e valorização contínua.
+    </p>
 
     <div class="search-box">
         <input type="text" id="location" placeholder="Localização">
@@ -319,7 +312,6 @@ body {
     <div class="grid" id="propertyGrid"></div>
 </section>
 
-<!-- PROPERTY DETAIL MODAL -->
 <div class="modal" id="propertyModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">✕</span>
@@ -337,30 +329,9 @@ body {
 
 <script>
 const properties = [
-    {
-        title:"Moradia Executiva - Maputo",
-        type:"Moradia",
-        location:"Maputo",
-        price:25000000,
-        description:"5 Quartos • Piscina Privada • Segurança 24h • Área 480m²",
-        image:"IMG-20260212-WA0060.jpg"
-    },
-    {
-        title:"Apartamento Moderno - Polana",
-        type:"Apartamento",
-        location:"Maputo",
-        price:8500000,
-        description:"3 Quartos • Vista Mar • Smart Home • 180m²",
-        image:"IMG-20260212-WA0062.jpg"
-    },
-    {
-        title:"Espaço Comercial - Baixa",
-        type:"Comercial",
-        location:"Maputo",
-        price:18000000,
-        description:"1200m² • Zona Prime • Ideal para Escritórios Corporativos",
-        image:"IMG-20260212-WA0060.jpg"
-    }
+    { title:"Moradia Executiva - Maputo", type:"Moradia", location:"Maputo", price:25000000, description:"5 Quartos • Piscina Privada • Segurança 24h • Área 480m²", image:"IMG-20260212-WA0060.jpg" },
+    { title:"Apartamento Moderno - Polana", type:"Apartamento", location:"Maputo", price:8500000, description:"3 Quartos • Vista Mar • Smart Home • 180m²", image:"IMG-20260212-WA0062.jpg" },
+    { title:"Espaço Comercial - Baixa", type:"Comercial", location:"Maputo", price:18000000, description:"1200m² • Zona Prime • Ideal para Escritórios Corporativos", image:"IMG-20260212-WA0060.jpg" }
 ];
 
 function renderProperties(list) {
@@ -408,7 +379,6 @@ function filterProperties() {
 
 renderProperties(properties);
 
-/* DSM REAL ESTATE typing effect */
 const logoText = "DSM REAL ESTATE";
 const logoElement = document.getElementById("logoText");
 let i = 0;
@@ -425,3 +395,4 @@ typeWriter();
 
 </body>
 </html>
+
