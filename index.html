@@ -93,7 +93,7 @@ body {
     z-index: 1;
 }
 
-/* Hero title */
+
 .hero h1 {
     font-size: 56px;
     font-weight: 900;
@@ -105,7 +105,6 @@ body {
         0 0 18px #ffffff,
         0 0 24px rgba(255,255,255,0.7);
 }
-
 /* Subtitle */
 .hero p {
     font-size: 18px;
@@ -114,7 +113,26 @@ body {
     text-shadow: 0 0 8px rgba(255,255,255,0.5);
     margin-bottom: 30px;
 }
+.disco-neon {
+    font-size: 20px;
+    font-weight: 700;
+    color: #001f5b; /* navy blue */
+    text-shadow:
+        0 0 6px #001f5b,
+        0 0 12px #003080,
+        0 0 18px #0050ff,
+        0 0 24px #0070ff;
+    animation: neonDance 1.2s infinite alternate;
+}
 
+/* NEON DANCING EFFECT */
+@keyframes neonDance {
+    0% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
+    25% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(-2px); }
+    50% { text-shadow: 0 0 10px #001f5b,0 0 20px #003080,0 0 26px #0050ff,0 0 32px #0070ff; transform: translateY(0); }
+    75% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(2px); }
+    100% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
+}
 /* SEARCH BOX */
 .search-box {
     background: var(--bg-main);
@@ -342,11 +360,13 @@ body {
 
 <body>
 
-<div class="navbar">
-    <div class="logo">DSM REAL ESTATE</div>
-    <div>Activos desde 2021</div>
-
+<div class="hero">
+  <div class="hero-content">
+    <h1>DSM REAL ESTATE</h1>
+    <p class="disco-neon">Activos desde 2021</p>
+  </div>
 </div>
+
 
 <section class="hero">
     <div class="hero-content">
