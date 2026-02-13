@@ -323,17 +323,17 @@ body {
     box-shadow: 0 0 20px #25D366, 0 0 40px #128C7E;
 }
 .carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
     overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
     gap: 20px;
 }
+
 
 .carousel-btn {
     background: rgba(46,204,113,0.7);
@@ -357,9 +357,10 @@ body {
 .carousel-btn:hover {
     box-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60;
 }
-
 .property-card {
-    min-width: 300px;
+    flex: 0 0 auto; /* don’t shrink, width auto-based */
+    min-width: 280px;
+    max-width: 300px;
     background: var(--card);
     color: var(--card-text);
     border-radius: 18px;
@@ -373,7 +374,6 @@ body {
     height: 180px;
     object-fit: cover;
 }
-
 /* RESPONSIVE */
 @media (min-width: 768px) {
     .search-box { grid-template-columns: repeat(4, 1fr); }
@@ -413,14 +413,15 @@ body {
   </div>
 </div>
 
-<section class="featured">
+
+ <section class="featured">
     <div class="section-title">Propriedades em Destaque</div>
     <div class="carousel">
-        <button class="carousel-btn left" onclick="moveCarousel(-1)">◀</button>
         <div class="carousel-track" id="propertyGrid"></div>
-        <button class="carousel-btn right" onclick="moveCarousel(1)">▶</button>
     </div>
 </section>
+
+
 <div class="modal" id="propertyModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">✕</span>
@@ -522,16 +523,31 @@ function renderProperties(list) {
 }
 
 // Carousel logic
-let currentSlide = 0;
-function moveCarousel(direction) {
-    const track = document.querySelector(".carousel-track");
+let carouselIndex = 0;
+const track = document.getElementById("propertyGrid");
+
+function autoCarousel() {
     const cards = document.querySelectorAll(".property-card");
-    const cardWidth = cards[0].offsetWidth + 20; // card + gap
-    currentSlide += direction;
-    if(currentSlide < 0) currentSlide = 0;
-    if(currentSlide > cards.length - 1) currentSlide = cards.length - 1;
-    track.style.transform = `translateX(${-currentSlide * cardWidth}px)`;
+    const cardCount = cards.length;
+    if(cardCount === 0) return;
+
+    const cardWidth = cards[0].offsetWidth + 20; // include gap
+    carouselIndex++;
+
+    // Reset if reached end
+    if(carouselIndex >= cardCount) carouselIndex = 0;
+
+    track.style.transform = `translateX(${-carouselIndex * cardWidth}px)`;
 }
+
+// Start automatic sliding every 3 seconds
+setInterval(autoCarousel, 3000);
+
+// Also adjust on window resize
+window.addEventListener("resize", () => {
+    carouselIndex = 0;
+    track.style.transform = `translateX(0px)`;
+});
 
 </script>
 
