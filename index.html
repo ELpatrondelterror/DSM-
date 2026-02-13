@@ -12,18 +12,23 @@
 /* CLEAN WHITE CORPORATE THEME   */
 /* ============================= */
 
+/* ============================= */
+/* CLEAN CORPORATE WHITE THEME   */
+/* ============================= */
+
 :root {
-    --bg-main: #ffffff;          /* full white background */
+    --bg-main: #f4f5f7;          /* soft white */
     --bg-secondary: #ffffff;
     --card: #2f3136;             /* dark smokey card */
-    --border: #e1e3e6;           /* subtle border for cards */
-    --accent: #2f3136;           /* dark accent for buttons/text */
-    --text-main: #1c1f23;        /* dark text for readability */
-    --text-sub: #6b7078;         /* secondary text */
-    --card-text: #f5f6f7;        /* text inside dark cards */
+    --border: #e1e3e6;
+    --accent: #2f3136;           /* dark accent */
+    --text-main: #1c1f23;
+    --text-sub: #6b7078;
+    --card-text: #f5f6f7;
 }
 
 /* RESET */
+
 * {
     margin: 0;
     padding: 0;
@@ -31,122 +36,89 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* BODY */
+/* ============================= */
+/* BODY                          */
+/* ============================= */
+
 body {
     background: var(--bg-main);
     color: var(--text-main);
 }
 
-/* NAVBAR */
+/* ============================= */
+/* NAVBAR                        */
+/* ============================= */
+
 .navbar {
-    position: relative;
+    position: absolute;
     width: 100%;
     padding: 24px;
     display: flex;
-    justify-content: center; /* center the logo */
-    align-items: center;
+    justify-content: space-between;
     z-index: 10;
-    background: transparent;
+    color: white;
 }
 
 .logo {
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 2px;
-    font-size: 48px;
-    color: #ffffff;
-    text-shadow:
-        0 0 8px #fff,
-        0 0 16px #fff,
-        0 0 24px #fff,
-        0 0 36px rgba(255,255,255,0.6);
-    white-space: nowrap;
-    border-right: 2px solid #fff;
-    overflow: hidden;
 }
 
 /* ============================= */
-/* HERO */
+/* HERO                          */
+/* ============================= */
+
 .hero {
-    height: 80vh; /* smaller for image quality */
-    background: url("IMG-20260212-WA0062.jpg") center center / contain no-repeat;
+    height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.75)
+        ),
+        url("IMG-20260212-WA0062.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     padding: 0 24px;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
+    color: white;
 }
 
-/* Overlay */
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.25);
-}
-
-/* Hero content */
 .hero-content {
-    position: relative;
     max-width: 700px;
-    z-index: 1;
 }
-
 
 .hero h1 {
-    font-size: 56px;
-    font-weight: 900;
+    font-size: 44px;
+    font-weight: 800;
     margin-bottom: 16px;
-    color: #ffffff;
-    text-shadow:
-        0 0 6px #ffffff,
-        0 0 12px #ffffff,
-        0 0 18px #ffffff,
-        0 0 24px rgba(255,255,255,0.7);
-}
-/* Subtitle */
-.hero p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(255,255,255,0.5);
-    margin-bottom: 30px;
-}
-.disco-neon {
-    font-size: 20px;
-    font-weight: 700;
-    color: #001f5b; /* navy blue */
-    text-shadow:
-        0 0 6px #001f5b,
-        0 0 12px #003080,
-        0 0 18px #0050ff,
-        0 0 24px #0070ff;
-    animation: neonDance 1.2s infinite alternate;
 }
 
-/* NEON DANCING EFFECT */
-@keyframes neonDance {
-    0% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
-    25% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(-2px); }
-    50% { text-shadow: 0 0 10px #001f5b,0 0 20px #003080,0 0 26px #0050ff,0 0 32px #0070ff; transform: translateY(0); }
-    75% { text-shadow: 0 0 8px #001f5b,0 0 16px #003080,0 0 22px #0050ff,0 0 28px #0070ff; transform: translateY(2px); }
-    100% { text-shadow: 0 0 6px #001f5b,0 0 12px #003080,0 0 18px #0050ff,0 0 24px #0070ff; transform: translateY(0); }
+.hero span {
+    color: #ffffff;
 }
-/* SEARCH BOX */
+
+.hero p {
+    color: #d6d6d6;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* ============================= */
+/* SEARCH BOX                    */
+/* ============================= */
+
 .search-box {
-    background: var(--bg-main);
+    background: rgba(255,255,255,0.95);
     padding: 20px;
     border-radius: 16px;
     display: grid;
     gap: 12px;
     border: 1px solid var(--border);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .search-box input,
 .search-box select {
-    background: var(--bg-main);
+    background: #ffffff;
     border: 1px solid var(--border);
     color: var(--text-main);
     padding: 14px;
@@ -169,7 +141,10 @@ body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* FEATURED SECTION */
+/* ============================= */
+/* FEATURED SECTION              */
+/* ============================= */
+
 .featured {
     padding: 80px 24px;
     background: var(--bg-secondary);
@@ -181,7 +156,10 @@ body {
     margin-bottom: 40px;
 }
 
-/* PROPERTY CARDS */
+/* ============================= */
+/* PROPERTY CARDS                */
+/* ============================= */
+
 .grid {
     display: grid;
     gap: 20px;
@@ -191,24 +169,9 @@ body {
     background: var(--card);
     padding: 24px;
     border-radius: 18px;
-    transition: 0.35s ease;
+    transition: 0.3s ease;
     cursor: pointer;
     color: var(--card-text);
-    position: relative;
-    overflow: hidden;
-}
-
-.property-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.06), transparent);
-    transform: translateX(-100%);
-    transition: 0.7s;
-}
-
-.property-card:hover::before {
-    transform: translateX(100%);
 }
 
 .property-card:hover {
@@ -232,7 +195,10 @@ body {
     font-weight: 700;
 }
 
-/* MODAL */
+/* ============================= */
+/* MODAL                         */
+/* ============================= */
+
 .modal {
     position: fixed;
     inset: 0;
@@ -246,15 +212,17 @@ body {
 }
 
 .modal-content {
-    background: var(--card);
+    background: #ffffff;
     border-radius: 20px;
     width: 100%;
     max-width: 550px;
     overflow: hidden;
     animation: modalFade 0.3s ease forwards;
     position: relative;
-    color: var(--card-text);
+    color: var(--text-main);
 }
+
+/* Modal Image */
 
 .modal-image-wrapper {
     width: 100%;
@@ -266,7 +234,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.4s ease;
 }
 
 .modal-body {
@@ -279,12 +246,12 @@ body {
     right: 20px;
     cursor: pointer;
     font-size: 14px;
-    color: var(--card-text);
+    color: var(--text-sub);
     transition: 0.3s;
 }
 
 .close-btn:hover {
-    color: #ffffff;
+    color: black;
 }
 
 #modalTitle {
@@ -293,7 +260,7 @@ body {
 }
 
 #modalMeta {
-    color: #c2c5ca;
+    color: var(--text-sub);
     font-size: 14px;
     margin-bottom: 16px;
 }
@@ -309,7 +276,10 @@ body {
     font-weight: 700;
 }
 
-/* ANIMATION */
+/* ============================= */
+/* ANIMATION                     */
+/* ============================= */
+
 @keyframes modalFade {
     from {
         opacity: 0;
@@ -321,11 +291,14 @@ body {
     }
 }
 
-/* RESPONSIVE */
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
 @media(min-width: 768px) {
 
     .hero h1 {
-        font-size: 64px;
+        font-size: 56px;
     }
 
     .search-box {
@@ -336,6 +309,7 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
 
 </style>
 </head>
