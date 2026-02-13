@@ -303,6 +303,76 @@ body {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
+.whatsapp-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #25D366;
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 12px #25D366, 0 0 24px #128C7E;
+    z-index: 9999;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px #25D366, 0 0 40px #128C7E;
+}
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+.carousel-btn {
+    background: rgba(46,204,113,0.7);
+    border: none;
+    color: #111;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    box-shadow: 0 0 10px #2ecc71;
+    transition: 0.3s ease;
+}
+
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+
+.carousel-btn:hover {
+    box-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60;
+}
+
+.property-card {
+    min-width: 300px;
+    background: var(--card);
+    color: var(--card-text);
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.property-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
 
 /* RESPONSIVE */
 @media (min-width: 768px) {
@@ -345,9 +415,12 @@ body {
 
 <section class="featured">
     <div class="section-title">Propriedades em Destaque</div>
-    <div class="grid" id="propertyGrid"></div>
+    <div class="carousel">
+        <button class="carousel-btn left" onclick="moveCarousel(-1)">◀</button>
+        <div class="carousel-track" id="propertyGrid"></div>
+        <button class="carousel-btn right" onclick="moveCarousel(1)">▶</button>
+    </div>
 </section>
-
 <div class="modal" id="propertyModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">✕</span>
@@ -362,6 +435,10 @@ body {
         </div>
     </div>
 </div>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/258877705152" target="DSM" class="whatsapp-btn">
+    💬 Chat WhatsApp
+</a>
 
 <script>
 // property data
@@ -426,6 +503,36 @@ function typeWriter() {
     }
 }
 typeWriter();
+    // Render properties with images
+function renderProperties(list) {
+    const grid = document.getElementById("propertyGrid");
+    grid.innerHTML = "";
+    list.forEach((p) => {
+        const card = document.createElement("div");
+        card.className = "property-card";
+        card.innerHTML = `
+            <img src="${p.image}" alt="${p.title}">
+            <div class="property-title">${p.title}</div>
+            <div class="property-meta">${p.type} • ${p.location}</div>
+            <div class="property-price">${p.price.toLocaleString()} MZN</div>
+        `;
+        card.addEventListener("click", () => openModal(p));
+        grid.appendChild(card);
+    });
+}
+
+// Carousel logic
+let currentSlide = 0;
+function moveCarousel(direction) {
+    const track = document.querySelector(".carousel-track");
+    const cards = document.querySelectorAll(".property-card");
+    const cardWidth = cards[0].offsetWidth + 20; // card + gap
+    currentSlide += direction;
+    if(currentSlide < 0) currentSlide = 0;
+    if(currentSlide > cards.length - 1) currentSlide = cards.length - 1;
+    track.style.transform = `translateX(${-currentSlide * cardWidth}px)`;
+}
+
 </script>
 
 </body>
